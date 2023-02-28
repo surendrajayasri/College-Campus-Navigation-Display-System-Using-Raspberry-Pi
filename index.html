@@ -1,0 +1,2070 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css" />
+    <link rel="stylesheet" type="text/css" href="css/mainstyles.css" />
+    <link rel="stylesheet" type="text/css" href="css/directory.css" />
+    <link rel="stylesheet" type="text/css" href="css/leaflet.css" />
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.min.css" />
+    <title>College Campus Nav Display</title>
+    <style>
+         .Container{
+           
+           position: absolute;
+           top: 250px;
+           left: 280px;
+           overflow-y: auto;
+           border-radius: 5px;
+           margin: auto;
+       }
+       
+       .Content{
+           height: 600px;
+           padding: 30px;
+           color: white;
+           text-align: center;
+       }
+        
+       
+       ::-webkit-scrollbar {
+           width: 60px;
+       }
+    
+      
+       ::-webkit-scrollbar-track {
+           background: #003865;
+           border-radius: 30px;
+       }
+    
+      
+       ::-webkit-scrollbar-thumb {
+           background: #FFCD00;
+           border-radius: 40px;
+       }
+    
+       
+       ::-webkit-scrollbar-thumb:hover {
+           background: #555;
+       }
+       .fixTableHead thead th {
+           position: sticky;
+           top: 0;
+   }
+       body{
+           background : transparent;
+       }
+       table{
+           font-family:Arial, Helvetica, sans-serif;
+           width: 1250px;
+           margin: auto;
+           table-layout: fixed;
+           text-align: center;
+           margin-top: 0px;
+           height: 0px;
+           color: white;
+           
+       }
+       table, th, td{
+           font-family: Arial, Helvetica, sans-serif;
+           border: 1px transparent;
+           border-collapse: collapse;
+           padding: 20px;
+           font-size: 24px;
+       }
+       
+       th{
+           background: #00A8E1;
+           text-transform: uppercase;
+           font-size: 24px;
+       }
+       tr:nth-child(odd) {
+           background-color: rgba(0, 0, 0, .5);
+           color: #FFF ;
+       }
+       tr:nth-child(even) {
+           background: rgba(0, 56, 101, 0.8);
+       }
+       td:nth-child(5n+4){
+           background-color: rgba(255, 205, 0, 0.8);
+           font-weight: bold;
+           font-size: 24px;
+       }
+       td:nth-child(5n+3){
+           font-weight: bold;
+           font-size: 24px;
+       }
+       /* a:link{
+           color: black;
+       } */
+        
+    </style>
+
+</head>
+
+<body id="body" style="z-index:1; overflow:hidden;">
+
+    <img id="bkg" src='img/bkg.png' />
+    <img id="weatherBG" src="img/weatherBG.png">
+    <img id="weatherIcon" src="https://cdn.aerisapi.com/wxblox/icons/cloudyn.png">
+    <!-- <img id="weatherIcon" src="http://api.accuweather.com/developers/Media/Default/WeatherIcons/07-s.png"> -->
+    <div id="dayContainer"></div>
+    <div id="dateContainer"></div>
+    <div id="tempContainer">24°</div>
+    <div id="clockDate">
+
+    </div>
+    <div id="clockTime">
+
+    </div>
+    <div id="clockClock">
+
+    </div>
+    <img id="yellowBar" src="img/Group 604.png" />
+    <img id='campusmap_btn' src='img/campusmap_btn.png' />
+    <img id='aab_buttn' src='img/aab_buttn.png' />
+    <img id='eventdirectory_btn' src='img/eventdirectory_btn.png' />
+    <img id='roomdirectory_btn' src='img/roomdirectory_btn.png' />
+    <div id="campusMap">
+        <div class="pageTitleText">
+            CAMPUS MAP
+        </div>
+        <img id='campuslegend' src='img/campuslegend.png' />
+        <img id='legendText' src='img/LEGEND.png' />
+        <img id='youarehere' src='img/You Are Here.png' />
+        <img id='youarehereinlegend' src='img/youarehereinlegend.png' />
+        <img id='parkingicon' src='img/parkingicon.png' />
+        <img id='busstopicon' src='img/busstopicon.png' />
+        <img id='busstop' src='img/Bus Stop.png' />
+        <img id='parking' src='img/Parking.png' />
+        <!-- <img id='voiceenabledlarge' src='img/voiceenabledlarge.png' /> -->
+        <!-- <img id='selectbuilding' src='img/selectbuilding.png' /> -->
+        <img id="aabMap2" src='img/aabMap.png' />
+        <img id="aabMap" src='img/campus mapaab.png' />
+        <img id="techMap" src='img/techMap.png' />
+        <!-- <img class='northUp' src='img/northUp.png' /> -->
+        <!-- <img id="SMSbtn2" src="img/SMS.png"> -->
+        <div id='campusLocations'>
+            <div id='Gundersen Facilities Services' style='position:absolute;top: 90px;left: 560px;width: 100px;height: 50px;'>
+
+            </div>
+            <div id='Lifetime Activities Center' style='position:absolute;top: 380px;left: 770px;width: 120px;height: 200px;'>
+
+            </div>
+            <div id='Science And Industry' style='position:absolute;top: 600px;left: 770px;width: 120px;height: 90px;'>
+
+            </div>
+            <div id='Alder Amphitheater' style='position:absolute;top: 600px;left: 900px;width: 120px;height: 90px;'>
+
+            </div>
+            <div id='Markosian Library' style='position:absolute;top: 500px;left: 900px;width: 120px;height: 90px;'>
+
+            </div>
+            <div id='Student Center' style='position:absolute;top: 600px;left: 1030px;width: 150px;height: 90px;'>
+
+            </div>
+            <div id='Technology Building' style='position:absolute;top: 550px;left: 1190px;width: 110px;height: 75px;'>
+
+            </div>
+            <div id='Business Building' style='position:absolute;top: 450px;left: 1120px;width: 110px;height: 75px;'>
+
+            </div>
+            <div id='Construction Trades' style='position:absolute;top: 720px;left: 1180px;width: 110px;height: 95px;'>
+
+            </div>
+            <div id='Academic and Administration Building' style='position:absolute;top: 720px;left: 900px;width: 150px;height: 95px;'>
+
+            </div>
+        </div>
+    </div>
+    <div id="academicMap" style="display:none">
+        <div id='CommandNotFound'>
+
+
+            <span id='notFoundRoom'>Room not found: </span>
+        </div>
+        <div id="aabTitle">
+            ACADEMIC AND ADMINISTRATION BUILDING(AAB)
+        </div>
+        <img id='academiclegend' src='img/Rectangle 231.png' />
+        <img id='legendText' src='img/LEGEND.png' />
+        <img id='youarehere' src='img/You Are Here.png' />
+        <img id='youarehereinlegend' src='img/youarehereinlegend.png' />
+        <img id='restrooms' src='img/Restrooms.png' />
+        <img id='restroomsicon' src='img/restrooms icon.png' />
+        <img id='stairsicon' src='img/stairs icon.png' />
+        <img id='stairs' src='img/Stairs.png' />
+        <img id='elevators' src='img/Elevators.png' />
+        <img id='elevatoricon' src='img/elevator icon.png' />
+        <img id='entrances-exits' src='img/entrances-exits.png' />
+        <img id='entrances-exitsText' src='img/entranceExitText.png' />
+        <img id='handicapicon' src='img/handicap icon.png' />
+        <img id='handicapaccessible' src='img/Handicap Accessible.png' />
+        <img id='path3639' src='img/Path 3639.png' />
+        <img id='selecttochangefloor' src='img/SELECT TOCHANGE FLOOR.png' />
+        <img id='path3640' src='img/Path 3640.png' />
+        <img id='basement' src='img/B.png' />
+        <img id='one' src='img/1.png' />
+        <img id='two' src='img/2.png' />
+        <img id='three' src='img/3.png' />
+        <img id='four' src='img/4.png' />
+        <!-- <img id='mapNorthArrow' class='northDownOne' src="img/northDown.png" /> -->
+        <!-- <img id="SMSbtn" src="img/SMS.png"> -->
+
+        <div id='themap'>
+
+        </div>
+        <!-- <div class="voiceEnabled">
+            <img src='img/voiceEnabled.png' />
+        </div> -->
+    </div>
+    <div id="eventDirectory" style="display: block;">
+        <div class="pageTitleText">
+            EVENT DIRECTORY
+        </div>
+        <div id="eventDirContainer" class="swiper-container-horizontal">
+            <div id="eventDirContainerList" class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
+                <ul class="eventDirSlide swiper-slide swiper-slide-active" id="eventSlide1" style="width: 1746px; margin-right: 100px;">
+                    <li class="eventBoxContainer">
+                        <div class="eventBox">
+                            <span class="eventHeaderText">Event:</span>
+                            <span class="eventSubHeaderText">Event - 1</span>
+                            <span class="eventRoomHeaderText">Room:</span>
+                            <span class="eventRoomSubHeaderText">115</span>
+                            <span class="eventRoomHeaderDateLabel">Date:</span>
+                            <span class="eventRoomSubHeaderDate">11/12</span>
+                        </div>
+                        <div class="eventBar">
+                            <span class="eventTimeText">12:00 AM - 11:30 PM</span>
+                        </div>
+                        <!-- <div class="eventMap">
+                            <div class="eventMapText">MAP IT</div>
+                        </div> -->
+                    </li>
+                    <li class="eventBoxContainer">
+                        <div class="eventBox">
+                            <span class="eventHeaderText">Event:</span>
+                            <span class="eventSubHeaderText">Event - 2</span>
+                            <span class="eventRoomHeaderText">Room:</span>
+                            <span class="eventRoomSubHeaderText">114</span>
+                            <span class="eventRoomHeaderDateLabel">Date:</span>
+                            <span class="eventRoomSubHeaderDate">11/12</span>
+                        </div>
+                        <div class="eventBar">
+                            <span class="eventTimeText">10:00 AM - 11:20 AM</span>
+                        </div>
+                        <!-- <div class="eventMap">
+                            <div class="eventMapText">MAP IT</div>
+                        </div> -->
+                    </li>
+                    <li class="eventBoxContainer">
+                        <div class="eventBox">
+                            <span class="eventHeaderText">Event:</span>
+                            <span class="eventSubHeaderText">Event - 3</span>
+                            <span class="eventRoomHeaderText">Room:</span>
+                            <span class="eventRoomSubHeaderText">117</span>
+                            <span class="eventRoomHeaderDateLabel">Date:</span>
+                            <span class="eventRoomSubHeaderDate">11/12</span>
+                        </div>
+                        <div class="eventBar">
+                            <span class="eventTimeText">10:00 AM - 10:40 AM</span>
+                        </div>
+                        <!-- <div class="eventMap">
+                            <div class="eventMapText">MAP IT</div>
+                        </div> -->
+                    </li>
+                    <li class="eventBoxContainer">
+                        <div class="eventBox">
+                            <span class="eventHeaderText">Event:</span>
+                            <span class="eventSubHeaderText">Event - 4</span>
+                            <span class="eventRoomHeaderText">Room:</span>
+                            <span class="eventRoomSubHeaderText">117</span>
+                            <span class="eventRoomHeaderDateLabel">Date:</span>
+                            <span class="eventRoomSubHeaderDate">11/12</span>
+                        </div>
+                        <div class="eventBar">
+                            <span class="eventTimeText">10:00 AM - 10:40 AM</span>
+                        </div>
+                        <!-- <div class="eventMap">
+                            <div class="eventMapText">MAP IT</div>
+                        </div> -->
+                    </li>
+                    <li class="eventBoxContainer">
+                        <div class="eventBox">
+                            <span class="eventHeaderText">Event:</span>
+                            <span class="eventSubHeaderText">Event - 5</span>
+                            <span class="eventRoomHeaderText">Room:</span>
+                            <span class="eventRoomSubHeaderText">117</span>
+                            <span class="eventRoomHeaderDateLabel">Date:</span>
+                            <span class="eventRoomSubHeaderDate">11/12</span>
+                        </div>
+                        <div class="eventBar">
+                            <span class="eventTimeText">10:40 AM - 11:20 AM</span>
+                        </div>
+                        <!-- <div class="eventMap">
+                            <div class="eventMapText">MAP IT</div>
+                        </div> -->
+                    </li>
+                    <li class="eventBoxContainer">
+                        <div class="eventBox">
+                            <span class="eventHeaderText">Event:</span>
+                            <span class="eventSubHeaderText">Event - 6</span>
+                            <span class="eventRoomHeaderText">Room:</span>
+                            <span class="eventRoomSubHeaderText">114</span>
+                            <span class="eventRoomHeaderDateLabel">Date:</span>
+                            <span class="eventRoomSubHeaderDate">11/12</span>
+                        </div>
+                        <div class="eventBar">
+                            <span class="eventTimeText">2:30 PM - 5:20 PM</span>
+                        </div>
+                        <!-- <div class="eventMap">
+                            <div class="eventMapText">MAP IT</div>
+                        </div> -->
+                    </li>
+                    <li class="eventBoxContainer">
+                        <div class="eventBox">
+                            <span class="eventHeaderText">Event:</span>
+                            <span class="eventSubHeaderText">Event - 7</span>
+                            <span class="eventRoomHeaderText">Room:</span>
+                            <span class="eventRoomSubHeaderText">117</span>
+                            <span class="eventRoomHeaderDateLabel">Date:</span>
+                            <span class="eventRoomSubHeaderDate">11/12</span>
+                        </div>
+                        <div class="eventBar">
+                            <span class="eventTimeText">2:30 PM - 3:50 PM</span>
+                        </div>
+                        <!-- <div class="eventMap">
+                            <div class="eventMapText">MAP IT</div>
+                        </div> -->
+                    </li>
+                    <li class="eventBoxContainer">
+                        <div class="eventBox">
+                            <span class="eventHeaderText">Event:</span>
+                            <span class="eventSubHeaderText">Event - 8</span>
+                            <span class="eventRoomHeaderText">Room:</span>
+                            <span class="eventRoomSubHeaderText">114</span>
+                            <span class="eventRoomHeaderDateLabel">Date:</span>
+                            <span class="eventRoomSubHeaderDate">11/12</span>
+                        </div>
+                        <div class="eventBar">
+                            <span class="eventTimeText">7:00 PM - 9:50 PM</span>
+                        </div>
+                        <!-- <div class="eventMap">
+                            <div class="eventMapText">MAP IT</div>
+                        </div> -->
+                    </li>
+                    <li class="eventBoxContainer">
+                        <div class="eventBox">
+                            <span class="eventHeaderText">Event:</span>
+                            <span class="eventSubHeaderText">Event - 9</span>
+                            <span class="eventRoomHeaderText">Room:</span>
+                            <span class="eventRoomSubHeaderText">114</span>
+                            <span class="eventRoomHeaderDateLabel">Date:</span>
+                            <span class="eventRoomSubHeaderDate">11/12</span>
+                        </div>
+                        <div class="eventBar">
+                            <span class="eventTimeText">7:00 PM - 9:50 PM</span>
+                        </div>
+                        <!-- <div class="eventMap">
+                            <div class="eventMapText">MAP IT</div>
+                        </div> -->
+                    </li>
+                </ul>
+            </div>
+        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+    </div>
+    <!-- <div id="eventDirectory" style="display:none">
+        <div class="pageTitleText">
+            EVENT DIRECTORY
+        </div>
+        <div id="eventDirContainer" class="swiper-container-horizontal">
+            <div id="eventDirContainerList" class="swiper-wrapper">
+                <li class="eventBoxContainer">
+                    <div class="eventBox">
+                        <span class="eventHeaderText">Event:</span>
+                        <span class="eventSubHeaderText">Sample text three</span>
+                        <span class="eventRoomHeaderText">Room:</span>
+                        <span class="eventRoomSubHeaderText">Sample text four</span>
+                    </div>
+                    <div class="eventBar">
+                        <span class="eventTimeText">Sample text two</span>
+                    </div>
+                    <div class="eventMap">
+                        <div class="eventMapText">
+                            MAP IT
+                        </div>
+                    </div>
+                </li>
+                <li class="eventBoxContainer">
+                    <div class="eventBox">
+
+                    </div>
+                    <div class="eventBar">
+                        <span class="eventTimeText">Sample text two</span>
+                    </div>
+                    <div class="eventMap">
+                        <div class="eventMapText">
+                            MAP IT
+                        </div>
+                    </div>
+                </li>
+                <li class="eventBoxContainer">
+                    <div class="eventBox">
+
+                    </div>
+                    <div class="eventBar">
+
+                    </div>
+                    <div class="eventMap">
+                        <div class="eventMapText">
+                            MAP IT
+                        </div>
+                    </div>
+                </li>
+                <li class="eventBoxContainer">
+                    <div class="eventBox">
+
+                    </div>
+                    <div class="eventBar">
+
+                    </div>
+                    <div class="eventMap">
+                        <div class="eventMapText">
+                            MAP IT
+                        </div>
+                    </div>
+                </li>
+                <li class="eventBoxContainer">
+                    <div class="eventBox">
+
+                    </div>
+                    <div class="eventBar">
+
+                    </div>
+                    <div class="eventMap">
+                        <div class="eventMapText">
+                            MAP IT
+                        </div>
+                    </div>
+                </li>
+                <li class="eventBoxContainer">
+                    <div class="eventBox">
+
+                    </div>
+                    <div class="eventBar">
+
+                    </div>
+                    <div class="eventMap">
+                        <div class="eventMapText">
+                            MAP IT
+                        </div>
+                    </div>
+                </li>
+                <li class="eventBoxContainer">
+                    <div class="eventBox">
+
+                    </div>
+                    <div class="eventBar">
+
+                    </div>
+                    <div class="eventMap">
+                        <div class="eventMapText">
+                            MAP IT
+                        </div>
+                    </div>
+                </li>
+                <li class="eventBoxContainer">
+                    <div class="eventBox">
+
+                    </div>
+                    <div class="eventBar">
+
+                    </div>
+                    <div class="eventMap">
+                        <div class="eventMapText">
+                            MAP IT
+                        </div>
+                    </div>
+                </li>
+                <li class="eventBoxContainer">
+                    <div class="eventBox">
+
+                    </div>
+                    <div class="eventBar">
+
+                    </div>
+                    <div class="eventMap">
+                        <div class="eventMapText">
+                            MAP IT
+                        </div>
+                    </div>
+                </li>
+            </div>
+        </div>
+
+        <div id="eventPageNumText"></div>
+        <img id="eventSwipeToView" src="img/swiperToViewMoreEvents.png"> -->
+        <!-- <div class="voiceEnabled">
+            <img src='img/voiceEnabled.png' />
+        </div> -->
+    <!-- </div> -->
+    <div id="roomDirectory" style="display:none;">
+        <!-- <div id="roomHeaderBackground"></div>
+        <div id="roomNumberHeader" class="roomHeader">ROOM NUMBER</div>
+        <div id="roomTypeHeader" class="roomHeader">ROOM TYPE</div>
+        <div id="roomFloorNumberHeader" class="roomHeader">FLOOR NUMBER</div>
+        <div id="roomMapItHeader" class="roomHeader">MAP IT</div>
+        <div id="roomDirContainer"></div>
+        <div style="text-align:center;"> -->
+        <!-- <table>
+           
+            <thead>
+                <div id="roomHeaderBackground">
+                    <tr>
+                    <th id="roomNumberHeader" >ROOM NUMBER</th>
+                    <th id="roomTypeHeader">ROOM NAME</th>
+                    <th id="roomFloorNumberHeader">FLOOR NUMBER</th>
+                    <th id="roomMapItHeader">MAP IT</th>
+                    </tr>
+                </div>
+            </thead>
+            <tbody>
+                <div id="roomBodyBackground">
+                <tr>
+                    <td>101</td>
+                    <td>Lab</td>
+                    <td id="roomFloorNumberHeader1" class="lokiTable">G</td>
+                    <td id="roomMapItHeader1" class="lokiTableMapIt"><a href="img101 path.png">MAP IT</a> </td>
+                </tr>
+                <tr>
+                    <td id="roomNumberHeader1" class="lokiTable">102</td>
+                    <td id="roomTypeHeaderLab" class="lokiTable">Lab</td>
+                    <td id="roomFloorNumberHeader1" class="lokiTable">G</td>
+                    <td id="roomMapItHeader1" class="lokiTableMapIt"><a href="img101 path.png">MAP IT</a> </td>
+                </tr>
+                
+                </div>
+            </tbody>
+        </table> -->
+    
+       
+        <div id="roomTitleText">
+            ROOM DIRECTORY
+        </div>
+        <div class="fixTableHead" >
+            <div class="Container">
+            <div class="Content">
+            <table>   
+                    <thead>
+                        <tr>
+                        <th style="text-align:center" width="200px">ROOM NUMBER</th>
+                        <th style="text-align:center" width="280px" >ROOM NAME</th>
+                        <th style="text-align:center" width="200px">FLOOR NUMBER</th>
+                        <th style="text-align:center" width="100px">MAP IT</th>
+                        </tr>
+                    </thead>
+                <tbody>
+                    <tr>
+                        <td>101</td>
+                        <td>COMPUTER LAB 1</td>
+                        <td>1</td>
+                        <td><a style="text-decoration:none" href="photoshop/ground floor/101.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>102</td>
+                        <td>COMPUTER LAB 2</td>
+                        <td>1</td>
+                        <td><a style="text-decoration:none" href="photoshop/ground floor/102.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>103</td>
+                        <td>COMPUTER LAB 3</td>
+                        <td>1</td>
+                        <td><a style="text-decoration:none" href="photoshop/ground floor/103.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>104</td>
+                        <td>PLACEMENT ROOM</td>
+                        <td>1</td>
+                        <td><a style="text-decoration:none" href="photoshop/ground floor/104.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>105</td>
+                        <td>COMPUTER LAB 4</td>
+                        <td>1</td>
+                        <td><a style="text-decoration:none" href="photoshop/ground floor/105.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>106</td>
+                        <td>MAINTENANCE LAB</td>
+                        <td>1</td>
+                        <td><a style="text-decoration:none" href="photoshop/ground floor/106.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>107</td>
+                        <td>COMPUTER LAB 5</td>
+                        <td>1</td>
+                        <td><a style="text-decoration:none" href="photoshop/ground floor/107.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>108</td>
+                        <td>E-CLASS ROOM</td>
+                        <td>1</td>
+                        <td><a style="text-decoration:none" href="photoshop/ground floor/108.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>109</td>
+                        <td>DEPARTMENT OF PHYSICAL EDUCATION<br>MULTI GYM</td>
+                        <td>1</td>
+                        <td><a style="text-decoration:none" href="photoshop/ground floor/109.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>110</td>
+                        <td>STAFF AND PHYSICALLY HANDICAPPED TOILETS</td>
+                        <td>1</td>
+                        <td><a style="text-decoration:none" href="photoshop/ground floor/110.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>111</td>
+                        <td>SECRETARY AND CORRESPONDENT</td>
+                        <td>1</td>
+                        <td><a style="text-decoration:none" href="photoshop/ground floor/111.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>112</td>
+                        <td>CHAIRMAN</td>
+                        <td>1</td>
+                        <td><a style="text-decoration:none" href="photoshop/ground floor/112.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>113</td>
+                        <td>ADMINISTRATIVE OFFICER</td>
+                        <td>1</td>
+                        <td><a style="text-decoration:none" href="photoshop/ground floor/113.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>114</td>
+                        <td>EXAMINATION CELL</td>
+                        <td>1</td>
+                        <td><a style="text-decoration:none" href="photoshop/ground floor/114.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>115</td>
+                        <td>PRINCIPAL</td>
+                        <td>1</td>
+                        <td><a style="text-decoration:none" href="photoshop/ground floor/115.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>116</td>
+                        <td>RECEPTION</td>
+                        <td>1</td>
+                        <td><a style="text-decoration:none" href="photoshop/ground floor/116.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>117</td>
+                        <td>BOOK CENTER</td>
+                        <td>1</td>
+                        <td><a style="text-decoration:none" href="photoshop/ground floor/117.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>118</td>
+                        <td>STAFF TOILETS</td>
+                        <td>1</td>
+                        <td><a style="text-decoration:none" href="photoshop/ground floor/118.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>119</td>
+                        <td>FLUID MECHANICS AND HYDRAULIC MACHINES LAB</td>
+                        <td>1</td>
+                        <td><a style="text-decoration:none" href="photoshop/ground floor/119.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>120</td>
+                        <td>STRENGTH AND MATERIALS LAB</td>
+                        <td>1</td>
+                        <td><a style="text-decoration:none" href="photoshop/ground floor/120.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>121</td>
+                        <td>ELECTRICAL MACHINES LAB I & II<br>POWER SYSTEMS LAB</td>
+                        <td>1</td>
+                        <td><a style="text-decoration:none" href="photoshop/ground floor/121.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>122</td>
+                        <td>MACHINE TOOLS LAB</td>
+                        <td>1</td>
+                        <td><a style="text-decoration:none" href="photoshop/ground floor/122.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>123</td>
+                        <td>ENGINEERING WORKSHOP</td>
+                        <td>1</td>
+                        <td><a style="text-decoration:none" href="photoshop/ground floor/123.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <!-- <tr>
+                        <td>124</td>
+                        <td>HOD CABIN(MECH)</td>
+                        <td>1</td>
+                        <td><a style="text-decoration:none" href="photoshop/ground floor/124.png" target="_self">MAP IT</a> </td>
+                    </tr> -->
+                    <tr>
+                        <td>201</td>
+                        <td>STORE ROOM</td>
+                        <td>2</td>
+                        <td><a style="text-decoration:none" href="photoshop/1st floor/201.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>202</td>
+                        <td>IV CSE LECTURE HALL</td>
+                        <td>2</td>
+                        <td><a style="text-decoration:none" href="photoshop/1st floor/202.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>203</td>
+                        <td>SEMINAR HALL</td>
+                        <td>2</td>
+                        <td><a style="text-decoration:none" href="photoshop/1st floor/203.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>204</td>
+                        <td>III CSE LECTURE HALL</td>
+                        <td>2</td>
+                        <td><a style="text-decoration:none" href="photoshop/1st floor/204.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>205</td>
+                        <td>LADIES TOILET</td>
+                        <td>2</td>
+                        <td><a style="text-decoration:none" href="photoshop/1st floor/205.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>206</td>
+                        <td>PHYSICS LAB</td>
+                        <td>2</td>
+                        <td><a style="text-decoration:none" href="photoshop/1st floor/206.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>207</td>
+                        <td>CHEMISTRY LAB</td>
+                        <td>2</td>
+                        <td><a style="text-decoration:none" href="photoshop/1st floor/207.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>208</td>
+                        <td>GENTS TOILET</td>
+                        <td>2</td>
+                        <td><a style="text-decoration:none" href="photoshop/1st floor/208.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>209</td>
+                        <td>COMMUNICATION/DIGITAL DESIGN LAB</td>
+                        <td>2</td>
+                        <td><a style="text-decoration:none" href="photoshop/1st floor/209.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>209A</td>
+                        <td>PROJECT ROOM/DEPT. LIBRARY</td>
+                        <td>2</td>
+                        <td><a style="text-decoration:none" href="photoshop/1st floor/209A.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>210</td>
+                        <td>ECA/LICA LAB</td>
+                        <td>2</td>
+                        <td><a style="text-decoration:none" href="photoshop/1st floor/210.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>211A</td>
+                        <td>HOD CABIN(ECE)</td>
+                        <td>2</td>
+                        <td><a style="text-decoration:none" href="photoshop/1st floor/211A.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>211</td>
+                        <td>MICROWAVE AND OPTICAL COMM. LAB</td>
+                        <td>2</td>
+                        <td><a style="text-decoration:none" href="photoshop/1st floor/211,212.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>212</td>
+                        <td>ELECTRONIC DEVICES AND CIRCUITS LAB</td>
+                        <td>2</td>
+                        <td><a style="text-decoration:none" href="photoshop/1st floor/211,212.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>213</td>
+                        <td>ECE STAFF ROOM</td>
+                        <td>2</td>
+                        <td><a style="text-decoration:none" href="photoshop/1st floor/213.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>214</td>
+                        <td>II ECE LECTURE HALL</td>
+                        <td>2</td>
+                        <td><a style="text-decoration:none" href="photoshop/1st floor/214.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>215</td>
+                        <td>COMPUTER AIDED DESIGN LAB</td>
+                        <td>2</td>
+                        <td><a style="text-decoration:none" href="photoshop/1st floor/215.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>216</td>
+                        <td>III ECE LECTURE HALL</td>
+                        <td>2</td>
+                        <td><a style="text-decoration:none" href="photoshop/1st floor/216.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>217</td>
+                        <td>CSE STAFF ROOM</td>
+                        <td>2</td>
+                        <td><a style="text-decoration:none" href="photoshop/1st floor/217.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>301</td>
+                        <td>LADIES WAITING HALL</td>
+                        <td>3</td>
+                        <td><a style="text-decoration:none" href="photoshop/2nd floor/301.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>302</td>
+                        <td>II CSE A LECTURE HALL</td>
+                        <td>3</td>
+                        <td><a style="text-decoration:none" href="photoshop/2nd floor/302.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>303</td>
+                        <td>II CSE B LECTURE HALL</td>
+                        <td>3</td>
+                        <td><a style="text-decoration:none" href="photoshop/2nd floor/303.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>304</td>
+                        <td>LIBRARY</td>
+                        <td>3</td>
+                        <td><a style="text-decoration:none" href="photoshop/2nd floor/304.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>305</td>
+                        <td>II CSM LECTURE HALL</td>
+                        <td>3</td>
+                        <td><a style="text-decoration:none" href="photoshop/2nd floor/305.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>306</td>
+                        <td>GENTS TOILET</td>
+                        <td>3</td>
+                        <td><a style="text-decoration:none" href="photoshop/2nd floor/306.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>307</td>
+                        <td>METALLURGY LAB</td>
+                        <td>3</td>
+                        <td><a style="text-decoration:none" href="photoshop/2nd floor/307.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>308</td>
+                        <td>NSS ROOM</td>
+                        <td>3</td>
+                        <td><a style="text-decoration:none" href="photoshop/2nd floor/308.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>309</td>
+                        <td>SEMINAR HALL</td>
+                        <td>3</td>
+                        <td><a style="text-decoration:none" href="photoshop/2nd floor/309.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>310</td>
+                        <td>LADIES TOILET</td>
+                        <td>3</td>
+                        <td><a style="text-decoration:none" href="photoshop/2nd floor/310.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>311</td>
+                        <td>DRAWING HALL - 1</td>
+                        <td>3</td>
+                        <td><a style="text-decoration:none" href="photoshop/2nd floor/311.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>312</td>
+                        <td>DRAWING HALL - 2</td>
+                        <td>3</td>
+                        <td><a style="text-decoration:none" href="photoshop/2nd floor/312.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>313</td>
+                        <td>III MECH LECTURE HALL</td>
+                        <td>3</td>
+                        <td><a style="text-decoration:none" href="photoshop/2nd floor/313.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>314</td>
+                        <td>IV MECH LECTURE HALL</td>
+                        <td>3</td>
+                        <td><a style="text-decoration:none" href="photoshop/2nd floor/314.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>315</td>
+                        <td>IV ECE LECTURE HALL</td>
+                        <td>3</td>
+                        <td><a style="text-decoration:none" href="photoshop/2nd floor/315.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>316</td>
+                        <td>MECHANICAL STAFF ROOM</td>
+                        <td>3</td>
+                        <td><a style="text-decoration:none" href="photoshop/2nd floor/316.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>401</td>
+                        <td>H&BS STAFF ROOM</td>
+                        <td>4</td>
+                        <td><a style="text-decoration:none" href="photoshop/3rd floor/401.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>402</td>
+                        <td>METROLOGY LAB<br>INSTRUMENTATION LAB</td>
+                        <td>4</td>
+                        <td><a style="text-decoration:none" href="photoshop/3rd floor/402.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>403</td>
+                        <td>LECTURE HALL</td>
+                        <td>4</td>
+                        <td><a style="text-decoration:none" href="photoshop/3rd floor/403.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>404</td>
+                        <td>I ECE & I MECH LECTURE HALL</td>
+                        <td>4</td>
+                        <td><a style="text-decoration:none" href="photoshop/3rd floor/404.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>405</td>
+                        <td>I CSE A LECTURE HALL</td>
+                        <td>4</td>
+                        <td><a style="text-decoration:none" href="photoshop/3rd floor/405.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>406</td>
+                        <td>LADIES WAITING HALL</td>
+                        <td>4</td>
+                        <td><a style="text-decoration:none" href="photoshop/3rd floor/406.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>407</td>
+                        <td>I CSM LECTURE HALL</td>
+                        <td>4</td>
+                        <td><a style="text-decoration:none" href="photoshop/3rd floor/407.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>408</td>
+                        <td>I CSE B LECTURE HALL</td>
+                        <td>4</td>
+                        <td><a style="text-decoration:none" href="photoshop/3rd floor/408.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>409</td>
+                        <td>LECTURE HALL</td>
+                        <td>4</td>
+                        <td><a style="text-decoration:none" href="photoshop/3rd floor/409.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>410</td>
+                        <td>GENTS TOILET</td>
+                        <td>4</td>
+                        <td><a style="text-decoration:none" href="photoshop/3rd floor/410.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>411</td>
+                        <td>LECTURE HALL</td>
+                        <td>4</td>
+                        <td><a style="text-decoration:none" href="photoshop/3rd floor/411.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>412</td>
+                        <td>II MECH LECTURE HALL</td>
+                        <td>4</td>
+                        <td><a style="text-decoration:none" href="photoshop/3rd floor/412.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>413</td>
+                        <td>SEMINAR HALL</td>
+                        <td>4</td>
+                        <td><a style="text-decoration:none" href="photoshop/3rd floor/413.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>414</td>
+                        <td>LADIES TOILET</td>
+                        <td>4</td>
+                        <td><a style="text-decoration:none" href="photoshop/3rd floor/414.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>415</td>
+                        <td>EC LAB/EM LAB</td>
+                        <td>4</td>
+                        <td><a style="text-decoration:none" href="photoshop/3rd floor/415.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>416</td>
+                        <td>CS LAB/PE LAB</td>
+                        <td>4</td>
+                        <td><a style="text-decoration:none" href="photoshop/3rd floor/416.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>417</td>
+                        <td>HOD CABIN(EEE)</td>
+                        <td>4</td>
+                        <td><a style="text-decoration:none" href="photoshop/3rd floor/417.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>418</td>
+                        <td>III EEE LECTURE HALL</td>
+                        <td>4</td>
+                        <td><a style="text-decoration:none" href="photoshop/3rd floor/418.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>419</td>
+                        <td>IV EEE LECTURE HALL</td>
+                        <td>4</td>
+                        <td><a style="text-decoration:none" href="photoshop/3rd floor/419.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>420</td>
+                        <td>LECTURE HALL</td>
+                        <td>4</td>
+                        <td><a style="text-decoration:none" href="photoshop/3rd floor/420.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>421</td>
+                        <td>III CIVIL LECTURE HALL</td>
+                        <td>4</td>
+                        <td><a style="text-decoration:none" href="photoshop/3rd floor/421.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>422</td>
+                        <td>IV CIVIL LECTURE HALL</td>
+                        <td>4</td>
+                        <td><a style="text-decoration:none" href="photoshop/3rd floor/422.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>423</td>
+                        <td>LECTURE HALL</td>
+                        <td>4</td>
+                        <td><a style="text-decoration:none" href="photoshop/3rd floor/423.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                    <tr>
+                        <td>424</td>
+                        <td>CIVIL STAFF ROOM</td>
+                        <td>4</td>
+                        <td><a style="text-decoration:none" href="photoshop/3rd floor/424.png" target="_self">MAP IT</a> </td>
+                    </tr>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+            </div>
+            </div>
+
+        <!-- <div id='filterText'>
+            Filter
+        </div>
+        <div id="allFilter" class="filterBtn activeFilterBtn">
+            <div class="filterBtnText">
+                ALL
+            </div>
+        </div>
+        <div id="classroomFilter" class="filterBtn">
+            <div class="filterBtnText">
+                CLASSROOM
+            </div>
+        </div>
+        <div id="commonFilter" class="filterBtn">
+            <div class="filterBtnText">
+                COMMON
+            </div>
+        </div>
+        <div id="conferenceFilter" class="filterBtn">
+            <div class="filterBtnText">
+                CONFERENCE
+            </div>
+        </div>
+        <div id="officeFilter" class="filterBtn">
+            <div class="filterBtnText">
+                OFFICE
+            </div>
+        </div>
+        <div id="studyFilter" class="filterBtn">
+            <div class="filterBtnText">
+                STUDY
+            </div>
+        </div>
+        <div id="roomSelectRowText">SELECT ROW</div>
+        <img id="roomRowDownBtn" src="img/rowDownBtn.png">
+        <img id="roomRowUpBtn" src="img/rowUpBtn.png">
+        <img id="roomMapItBtn" src="img/mapItBtn.png"> -->
+        <!-- <div class="voiceEnabled">
+            <img src='img/voiceEnabled.png' />
+        </div> -->
+    </div>
+    <!-- <div id='phone'>
+        <img src='img/phone.png'>
+        <div id="p1">
+
+        </div>
+        <div id="p2">
+
+        </div>
+        <div id="p3">
+
+        </div>
+        <div id="p4">
+
+        </div>
+        <div id="p5">
+
+        </div>
+        <div id="p6">
+
+        </div>
+        <div id="p7">
+
+        </div>
+        <div id="p8">
+
+        </div>
+        <div id="p9">
+
+        </div>
+        <div id="p0">
+
+        </div>
+        <div id="pBack">
+
+        </div>
+        <div id="pSend">
+
+        </div>
+        <div id="pClose">
+
+        </div>
+        <span id="pText">
+
+        </span>
+    </div> -->
+</body>
+<script>
+    var dirList = {};
+    var nameList = {};
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    // var currentBuilding = urlParams.get('building'); //for Hidden link only
+    var currentBuilding = "AAB";
+    var ScreenState = "Campus"
+    if (currentBuilding != "TB" && currentBuilding != "AAB" && currentBuilding != "AAB2") {
+        currentBuilding = "AAB"
+    }
+    var currentPlayer = "HiddenLink";
+
+
+    //TB button is slightly off, so this fixes the position
+    if (currentBuilding == "TB") {
+        document.getElementById("aab_buttn").style.left = "292px";
+    }
+
+    var transitionSpeed = parseInt(urlParams.get('speed'))
+
+    if (transitionSpeed > 0) {
+        transitionSpeed = transitionSpeed * 1000
+    } else {
+        transitionSpeed = 5000
+    }
+</script>
+<!-- <script src="js/jquery-3.5.1.min.js"></script> -->
+<script src="js/jquery-1.12.4.min.js"></script>
+<!-- <script src="js/jquery.visible.js"></script> -->
+<script src="js/jquery.csv.min.js"></script>
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/moment.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/leaflet.js"></script>
+<script src="js/leaflet-ant-path.js"></script>
+<script src="js/maploading.js"></script>
+<script src="js/mapping.js"></script>
+<script src="js/Util.js"></script>
+<script src="js/roomPathsAAB.js"></script>
+<script src="js/roomPathsAAB2.js"></script>
+<script src="js/roomPathsTB.js"></script>
+
+<script src="js/roomDir.js"></script>
+
+<script src="js/Timeout.js"></script>
+<script src="vui/audioDetect.js"></script>
+<script src="vui/capture.js"></script>
+<script src="vui/navigation.js"></script>
+<script src="vui/pipeline.js"></script>
+<script src="js/clock.js"></script>
+<script src="js/sms.js"></script>
+
+
+
+<script>
+    //SLCC/index.html?building=AAB
+    //SLCC/index.html?building=TB
+
+    function moveComponentsForBuilding() {
+        if (currentBuilding == "AAB") {
+            $("#path3639").css('left', '1064px')
+            $("#selecttochangefloor").css('left', '1037px')
+            $("#path3640").css('left', '1035px')
+            $("#basement").hide()
+            $("#techMap").hide()
+            $("#aabMap2").hide()
+            $("#aabMap").show()
+        } else if (currentBuilding == "AAB2") {
+            $("#path3639").css('left', '1064px')
+            $("#selecttochangefloor").css('left', '1037px')
+            $("#path3640").css('left', '1035px')
+            $("#basement").hide()
+            $("#techMap").hide()
+            $("#aabMap").hide()
+            $("#aabMap2").show()
+        } else {
+            $("#path3639").css('left', '984.47px')
+            $("#selecttochangefloor").css('left', '957.47px')
+            $("#path3640").css('left', '955.34px')
+
+            $("#one").css('left', '1238px')
+            $("#two").css('left', '1326px')
+            $("#three").css('left', '1415px')
+            $("#four").css('left', '1504px')
+            $("#basement").show()
+            $("#techMap").show()
+            $("#aabMap").hide()
+            $("#aabMap2").hide()
+            $("#aabTitle").html("TECHNOLOGY BUILDING")
+            $("#aabTitle").css('top', '175px')
+        }
+    }
+    moveComponentsForBuilding()
+
+    $("#campusLocations").children().click(function() {
+        if ($(this).attr('id') == "Technology Building" && currentBuilding == "TB") {
+            $("#aab_buttn").trigger('click')
+            return
+        }
+        if ($(this).attr('id') == "Academic and Administration Building" && (currentBuilding == "AAB" || currentBuilding == "AAB2")) {
+            $("#aab_buttn").trigger('click')
+            return
+        }
+
+        console.log($(this).attr('id'))
+        lastRoute = $(this).attr('id')
+        $("#SMSbtn2").show();
+    })
+    $("#campusmap_btn").click(function() {
+        displayScreen("campus")
+    })
+    $("#aab_buttn").click(function() {
+        displayScreen("academic")
+    })
+    $("#eventdirectory_btn").click(function() {
+        displayScreen("event");
+        eventsSwiper.slideTo(0);
+    })
+    $("#roomdirectory_btn").click(function() {
+        displayScreen("room");
+        $("#allFilter").click();
+    })
+    $("#basement").click(function() {
+        currentLevel = 0
+        changeLeafletMap()
+        setActiveFloorButton()
+    })
+    $("#one").click(function() {
+        currentLevel = 1
+        changeLeafletMap()
+        setActiveFloorButton()
+    })
+    $("#two").click(function() {
+        currentLevel = 2
+        changeLeafletMap()
+        setActiveFloorButton()
+    })
+    $("#three").click(function() {
+        currentLevel = 3
+        changeLeafletMap()
+        setActiveFloorButton()
+    })
+    $("#four").click(function() {
+        currentLevel = 4
+        changeLeafletMap()
+        setActiveFloorButton()
+    })
+    $("#help").click(function() {
+        console.log('help clicked')
+        $("#helpOverlay").show();
+    })
+    $("#helpOverlay").click(function() {
+        $("#helpOverlay").hide();
+    })
+
+    var phoneString = ""
+    $("#p1").click(function() {
+        addToPhoneString("1")
+    })
+    $("#p2").click(function() {
+        addToPhoneString("2")
+    })
+    $("#p3").click(function() {
+        addToPhoneString("3")
+    })
+    $("#p4").click(function() {
+        addToPhoneString("4")
+    })
+    $("#p5").click(function() {
+        addToPhoneString("5")
+    })
+    $("#p6").click(function() {
+        addToPhoneString("6")
+    })
+    $("#p7").click(function() {
+        addToPhoneString("7")
+    })
+    $("#p8").click(function() {
+        addToPhoneString("8")
+    })
+    $("#p9").click(function() {
+        addToPhoneString("9")
+    })
+    $("#p0").click(function() {
+        addToPhoneString("0")
+    })
+    $("#pBack").click(function() {
+        addToPhoneString("b")
+    })
+    $("#pClose").click(function() {
+        phoneString = ""
+        lastText = ""
+        updatePhoneDisplay()
+        $("#phone").hide()
+    })
+
+    $("#SMSbtn").click(function() {
+        $("#phone").show();
+    })
+    $("#SMSbtn2").click(function() {
+        $("#phone").show();
+    })
+    var directionsList = ""
+    $("#pSend").click(function() {
+        //lastRoute holds the last room. Need to grab the directions when available
+        //directionsList = lastRoute
+
+        directionsList = "Directions to " + lastRoute + " " + turnByTurn[lastRoute];
+
+        smsText(phoneString, directionsList)
+        $("#phone").hide();
+        $('#pText').text("");
+    })
+    var turnByTurn = {}
+    $(document).ready(function() {
+        dataSource = currentBuilding.toUpperCase();
+        if (currentBuilding == "AAB" || currentBuilding == "TB" || currentBuilding == "AAB2") {
+            $.ajax({
+                type: "GET",
+                url: "frontend/php/getData.php?dbtable=tbt" + dataSource.toLowerCase(),
+                // url: "http://www.visixcreative.com/test/SLCC/frontend/php/getData.php?dbtable=tbt" + currentBuilding.toLowerCase(),
+                dataType: "json",
+                success: function(data) {
+                    data.forEach(e => {
+                        turnByTurn[e.field1] = e.field2;
+                    })
+                }
+            });
+        }
+        // if (currentBuilding == "AAB") {
+        //     $.ajax({
+        //         type: "GET",
+        //         url: "data/tbtAAB.csv",
+        //         dataType: "text",
+        //         success: function(data) {
+        //             var input = $.csv.toArrays(data);
+        //             turnByTurn = input
+        //         }
+        //     });
+        // } else {
+        //     $.ajax({
+        //         type: "GET",
+        //         url: "data/tbtTB.csv",
+        //         dataType: "text",
+        //         success: function(data) {
+        //             var input = $.csv.toArrays(data);
+        //             turnByTurn = input
+        //         }
+        //     });
+        // }
+    });
+
+    function addToPhoneString(digit) {
+        if (digit != "b" && phoneString.length > 9) {
+            return false
+        }
+        if (digit != "b") {
+            phoneString += digit
+        } else if (phoneString.length > 0) {
+            phoneString = phoneString.substr(0, phoneString.length - 1)
+        }
+        console.log(phoneString)
+        updatePhoneDisplay()
+    }
+
+    function updatePhoneDisplay() {
+        if (phoneString.length < 4) {
+            $("#pText").text(phoneString.replace(/(\d{3})(\d{0,3})(\d{0,4})/, "$1"))
+        } else if (phoneString.length < 7) {
+            $("#pText").text(phoneString.replace(/(\d{3})(\d{0,3})(\d{0,4})/, "$1-$2"))
+        } else {
+            $("#pText").text(phoneString.replace(/(\d{3})(\d{3})(\d{0,4})/, "$1-$2-$3"))
+        }
+
+    }
+    $(".filterBtn").click(function() {
+        $(".filterBtn").removeClass("activeFilterBtn");
+        $(this).addClass("activeFilterBtn");
+        switch (this.id) {
+            case "allFilter":
+                comboFilterList([
+                    [""], 1, true
+                ], $("#roomDirContainer"));
+                break;
+            case "classroomFilter":
+                comboFilterList([
+                    ["Classroom"], 1, true
+                ], $("#roomDirContainer"));
+                break;
+            case "commonFilter":
+                comboFilterList([
+                    ["Common"], 1, true
+                ], $("#roomDirContainer"));
+                break;
+            case "conferenceFilter":
+                comboFilterList([
+                    ["Conference"], 1, true
+                ], $("#roomDirContainer"));
+                break;
+            case "officeFilter":
+                comboFilterList([
+                    ["Office"], 1, true
+                ], $("#roomDirContainer"));
+                break;
+            case "studyFilter":
+                comboFilterList([
+                    ["Study"], 1, true
+                ], $("#roomDirContainer"));
+                break;
+            default:
+                break;
+        }
+    });
+
+
+    $("#roomMapItBtn").click(function() {
+        $("#roomDirContainer .rowA .mapItBtn").click();
+    });
+
+    function setActiveFloorButton() {
+        $("#basement").attr('src', 'img/B.png')
+        $("#one").attr('src', 'img/1.png')
+        $("#two").attr('src', 'img/2.png')
+        $("#three").attr('src', 'img/3.png')
+        $("#four").attr('src', 'img/4.png')
+        switch (currentLevel) {
+            case 0:
+                $("#basement").attr('src', 'img/BOn.png')
+                break;
+            case 1:
+                $("#one").attr('src', 'img/1On.png')
+                break;
+            case 2:
+                $("#two").attr('src', 'img/2On.png')
+                break;
+            case 3:
+                $("#three").attr('src', 'img/3On.png')
+                break;
+            case 4:
+                $("#four").attr('src', 'img/4On.png')
+                break;
+        }
+    }
+
+    function displayScreen(screen) {
+        $("#CommandNotFound").hide();
+        $("#helpClose").trigger('click')
+        $("#SMSbtn2").hide();
+        $("#SMSbtn").hide();
+        $("#phone").hide();
+        $("#academicMap").hide();
+        $("#campusMap").hide();
+        $("#eventDirectory").hide();
+        $("#roomDirectory").hide();
+        $("#campusmap_btn").attr('src', 'img/campusmap_btn.png')
+        if (currentBuilding == "AAB") {
+            $("#aab_buttn").attr('src', 'img/aab_buttn.png')
+        } else if (currentBuilding == "AAB2") {
+            $("#aab_buttn").attr('src', 'img/aab_buttn.png')
+        } else {
+            $("#aab_buttn").attr('src', 'img/tech_buttn.png')
+        }
+        $("#eventdirectory_btn").attr('src', 'img/eventdirectory_btn.png')
+        $("#roomdirectory_btn").attr('src', 'img/roomdirectory_btn.png')
+        switch (screen) {
+            case "campus":
+                ScreenState = "Campus"
+                $("#campusmap_btn").attr('src', 'img/campusmap_btnOn.png')
+                $("#campusMap").show();
+                break;
+            case "academic":
+                ScreenState = "Floor"
+                if (currentBuilding == "AAB" || currentBuilding == "AAB2") {
+                    $("#aab_buttn").attr('src', 'img/aab_buttnOn.png')
+                } else {
+                    $("#aab_buttn").attr('src', 'img/tech_buttnOn.png')
+                }
+                $("#one").trigger('click');
+                $("#academicMap").show();
+                map.invalidateSize();
+                break;
+            case "event":
+                ScreenState = "Event"
+                $("#eventdirectory_btn").attr('src', 'img/eventdirectory_btnOn.png')
+                $("#eventDirectory").show();
+                break;
+            case "room":
+                ScreenState = "Room"
+                $("#roomdirectory_btn").attr('src', 'img/roomdirectory_btnOn.png')
+                $("#roomDirectory").show();
+                break;
+        }
+    }
+
+
+    var currentLevel = 1
+
+    function changeLeafletMap() {
+        $("#phone").hide()
+            // Remove old map layer and add new one
+        map.removeLayer(newmap);
+        map.eachLayer(function(layer) {
+            map.removeLayer(layer);
+        });
+        //$("#cLegend").hide()
+        // $("#mapNorthArrow").removeClass();
+        if (currentBuilding == "AAB" || currentBuilding == "AAB2") {
+            w = 1400
+            h = 775
+            $("#themap").css('top', '112.9px')
+            $("#themap").css('left', '350px')
+            switch (currentLevel) {
+                case 1:
+                    //$("#gLegend").hide()
+                    //$("#cLegend").show()
+                    // $("#mapNorthArrow").addClass("northDownOne")
+                    w = 1400
+                    h = 775
+                    $("#themap").css('top', '112.9px')
+                    $("#themap").css('left', '350px')
+                    if (currentBuilding == "AAB") {
+                        url = "./img/FIRST FLOOR.png"
+                    } else {
+                        url = "./img/FIRST FLOOR 22.png"
+                    }
+
+                    break;
+                case 2:
+                    // $("#mapNorthArrow").addClass("northDownOne")
+                    w = 1400
+                    h = 775
+                    $("#themap").css('top', '112.9px')
+                    $("#themap").css('left', '350px')
+                    $("#gLegend").hide()
+                    $("#cLegend").show()
+                    url = "./img/SECOND FLOOR.png"
+                    break;
+                case 3:
+                    // $("#mapNorthArrow").addClass("northDownOne")
+                    w = 1400
+                    h = 775
+                    $("#themap").css('top', '112.9px')
+                    $("#themap").css('left', '350px')
+                    $("#gLegend").hide()
+                    $("#cLegend").show()
+                    url = "./img/THIRD FLOOR.png"
+                    break;
+                case 4:
+                    // $("#mapNorthArrow").addClass("northDownTwo")
+                    w = 1400
+                    h = 775
+                    $("#themap").css('top', '112.9px')
+                    $("#themap").css('left', '350px')
+                    $("#gLegend").hide()
+                    $("#cLegend").show()
+                    url = "./img/FOURTH FLOOR.png"
+                    break;
+            }
+        } else {
+            // $("#mapNorthArrow").addClass("northDownThree")
+            w = 1262
+            h = 750
+            $("#themap").css('top', '112.9px')
+            $("#themap").css('left', '487.5px')
+            switch (currentLevel) {
+                case 1:
+                    w = 1248
+                    h = 723.7
+                    $("#themap").css('top', '120.87px')
+                    $("#themap").css('left', '465.43px')
+                    $("#gLegend").hide()
+                    url = "./img/TB/FLOOR 1.png"
+                    break;
+                case 2:
+                    w = 1266
+                    h = 757.83
+                    $("#themap").css('top', '109.66px')
+                    $("#themap").css('left', '467.1px')
+                    $("#gLegend").show()
+                    url = "./img/TB/FLOOR 2.png"
+                    break;
+                case 3:
+                    w = 1265.1
+                    h = 709.83
+                    $("#themap").css('top', '157.57px')
+                    $("#themap").css('left', '468.1px')
+                    $("#gLegend").show()
+                    url = "./img/TB/FLOOR 3.png"
+                    break;
+                case 4:
+                    w = 1269.16
+                    h = 758.8
+                    $("#themap").css('top', '106.47px')
+                    $("#themap").css('left', '464.43px')
+                    $("#gLegend").show()
+                    url = "./img/TB/FLOOR 4.png"
+                    break;
+                case 0:
+                    w = 1288.39
+                    h = 770.73
+                    $("#themap").css('top', '48.2px')
+                    $("#themap").css('left', '465.28px')
+                    $("#gLegend").show()
+                    url = "./img/TB/FLOOR B.png"
+                    break;
+            }
+            setActiveFloorButton()
+        }
+        // calculate the edges of the image, in coordinate space
+        var southWest = map.unproject([0, h], map.getMaxZoom() - 1);
+        var northEast = map.unproject([w, 0], map.getMaxZoom() - 1);
+        var bounds = new L.LatLngBounds(southWest, northEast);
+
+        newmap = new L.imageOverlay(url, bounds);
+        map.addLayer(newmap);
+
+        // if (currentBuilding == "AAB") {
+        //     curPathList = roomPathsAAB
+        // } else {
+        //     curPathList = roomPathsTB
+        // }
+
+        // curPathList.forEach(e => {
+        //     if (e[1].indexOf(currentLevel) == 0) {
+        //         antPolyline = new L.Polyline.AntPath(e[0], polylineOptions);
+        //         map.addLayer(antPolyline);
+        //     }
+        // })
+
+
+        // options = {color: 'red', weight: 5}
+        // if(currentBuilding == "AAB"){
+        //     curPathList = roomPathsAAB
+        // } else {
+        //     curPathList = roomPathsTB
+        // }
+
+        // curPathList.forEach(function(item){
+        //     //Basement floor height doesn't match XD. Had to resize map after routing. This is to fix the linepaths for that floor.
+        //     if(item[1][0] == currentLevel){
+        //         latlngs = item[0]
+        //         if(currentLevel == 0){
+        //             console.log(latlngs)
+        //             latlngs.forEach(function(latlng){
+        //                 if(item[2] == "R"){
+        //                     latlng[0] += 8
+        //                 } else {
+        //                     latlng[0] += 3
+        //                 }
+        //             })
+        //         }
+        //         antPolyline = new L.Polyline.AntPath(latlngs, polylineOptions);
+        //         map.addLayer(antPolyline)
+        //     }
+        // })
+        map.invalidateSize();
+        //var myIcon = L.icon({ iconUrl: 'img/0/YouAreHere.png', iconSize: [60, 60], iconAnchor: [30, 30] });
+
+    }
+    var lastRoute = ""
+    var firstLoop = true
+
+    function getRoute(room) {
+        $("#helpClose").trigger('click')
+        lastTranscriptRoute = "brutus map to " + room
+        console.log(lastTranscript)
+        $("#phone").hide()
+        console.log("get route for ", room)
+        room = room.toUpperCase()
+        room = room.replace("-", "")
+        lastRoute = room
+        changeLeafletMap()
+        options = {
+            color: 'red',
+            weight: 5
+        }
+        if (currentBuilding == "AAB") {
+            curPathList = roomPathsAAB
+        } else if (currentBuilding == "AAB2") {
+            curPathList = roomPathsAAB2
+        } else {
+            curPathList = roomPathsTB
+        }
+
+        var roomFound = false;
+        // currentLevel = 3
+        //             changeLeafletMap()
+        // curPathList.forEach(function(item){
+        //     if(item[1][0] == "3"){
+        //         antPolyline = new L.Polyline.AntPath(item[0], polylineOptions);
+        //         map.addLayer(antPolyline)
+        //     }
+        // })
+        // map.invalidateSize();
+        // return
+        curPathList.forEach(function(item) {
+            //Basement floor height doesn't match XD. Had to resize map after routing. This is to fix the linepaths for that floor.
+            let latlngs = item[0];
+            if (room == item[1] && currentBuilding == "TB" && item[1][0] == "0" && firstLoop == true) {
+                latlngs.forEach(function(latlng) {
+                    if (item[2] == "R") {
+                        latlng[0] += 8
+                    } else {
+                        latlng[0] += 3
+                    }
+                })
+                firstLoop = false
+            }
+            if (room == item[1].replace("-", "")) {
+                roomFound = true;
+                if (item[1][0] != 1 && currentBuilding == "TB") {
+                    currentLevel = 1
+                    changeLeafletMap()
+                    console.log("item ", item[1][0])
+                    if (item[2] == "R") {
+                        antPolyline = new L.Polyline.AntPath(roomPathsTB[1][0], polylineOptions);
+                        map.addLayer(antPolyline)
+                        setTimeout(function() {
+                            currentLevel = parseInt(item[1][0])
+                            changeLeafletMap()
+                            console.log(latlngs)
+                            antPolyline = new L.Polyline.AntPath(latlngs, polylineOptions);
+                            map.addLayer(antPolyline);
+                            setActiveFloorButton();
+                            //$("#phone").show();
+                            $("#SMSbtn").show();
+
+                        }, transitionSpeed)
+                    } else {
+                        antPolyline = new L.Polyline.AntPath(roomPathsTB[0][0], polylineOptions);
+                        map.addLayer(antPolyline)
+                        setTimeout(function() {
+                            currentLevel = parseInt(item[1][0])
+                            changeLeafletMap()
+                            console.log(latlngs)
+                            antPolyline = new L.Polyline.AntPath(latlngs, polylineOptions);
+                            map.addLayer(antPolyline)
+                            setActiveFloorButton();
+                            //$("#phone").show();
+                            $("#SMSbtn").show();
+                        }, transitionSpeed)
+                    }
+                } else if (currentBuilding == "TB") {
+                    antPolyline = new L.Polyline.AntPath(latlngs, polylineOptions);
+                    map.addLayer(antPolyline);
+                    //$("#phone").show();
+                } else if (item[1][0] != 1) {
+                    if (currentBuilding == "AAB") {
+                        if (item[1][0] == 4) {
+                            antPolyline = new L.Polyline.AntPath(roomPathsAAB[1][0], polylineOptions);
+                        } else {
+                            antPolyline = new L.Polyline.AntPath(roomPathsAAB[0][0], polylineOptions);
+                        }
+                    } else if (currentBuilding == "AAB2") {
+                        if (item[1][0] == 4) {
+                            antPolyline = new L.Polyline.AntPath(roomPathsAAB2[1][0], polylineOptions);
+                        } else {
+                            antPolyline = new L.Polyline.AntPath(roomPathsAAB2[0][0], polylineOptions);
+                        }
+                    }
+
+                    map.addLayer(antPolyline)
+                    setTimeout(function() {
+                        currentLevel = parseInt(item[1][0])
+                        changeLeafletMap()
+                        console.log(latlngs)
+                        antPolyline = new L.Polyline.AntPath(latlngs, polylineOptions);
+                        map.addLayer(antPolyline);
+                        setActiveFloorButton();
+                        //$("#phone").show();
+                        $("#SMSbtn").show();
+                    }, transitionSpeed)
+                } else {
+                    antPolyline = new L.Polyline.AntPath(latlngs, polylineOptions);
+                    map.addLayer(antPolyline);
+                    //$("#phone").show();
+                    $("#SMSbtn").show();
+                }
+            }
+
+        });
+        if (roomFound === false)
+            $("#SMSbtn").show();
+        map.invalidateSize();
+        return roomFound
+    }
+
+    var eventsSwiper;
+
+    function createEventBoxes(data) {
+        while ($("#eventDirContainerList")[0].firstChild)
+            $("#eventDirContainerList")[0].removeChild($("#eventDirContainerList")[0].firstChild);
+
+
+        var count = 0;
+        var slideNum = 1;
+        var curSlide = document.createElement("ul");
+        curSlide.className = "eventDirSlide swiper-slide";
+        curSlide.id = "eventSlide" + slideNum++;
+        var today = moment();
+        data.forEach(e => {
+            // if (moment(e.Start).isSame(today, 'day') === false)
+            //     return;
+            if (count == 9) {
+                $("#eventDirContainerList").append(curSlide);
+                curSlide = document.createElement("ul");
+                curSlide.className = "eventDirSlide swiper-slide"
+                curSlide.id = "eventSlide" + slideNum++;
+                count = 0;
+            }
+            var eventBoxContainer = document.createElement("li");
+            eventBoxContainer.className = "eventBoxContainer";
+            var eventBox = document.createElement("div");
+            eventBox.className = "eventBox";
+            var eventHeaderText = document.createElement("span");
+            eventHeaderText.className = "eventHeaderText";
+            eventHeaderText.innerText = "Event:";
+            var eventSubHeaderText = document.createElement("span");
+            eventSubHeaderText.className = "eventSubHeaderText";
+            eventSubHeaderText.innerText = e.EventName;
+            var eventRoomHeaderText = document.createElement("span");
+            eventRoomHeaderText.className = "eventRoomHeaderText";
+            eventRoomHeaderText.innerText = "Room:";
+            var eventRoomSubHeaderText = document.createElement("span");
+            eventRoomSubHeaderText.className = "eventRoomSubHeaderText";
+            eventRoomSubHeaderText.innerText = e.RoomDescription
+
+            var eventRoomHeaderDateLabel = document.createElement("span");
+            eventRoomHeaderDateLabel.className = "eventRoomHeaderDateLabel";
+            eventRoomHeaderDateLabel.innerText = "Date:";
+
+            var eventRoomSubHeaderDate = document.createElement("span");
+            eventRoomSubHeaderDate.className = "eventRoomSubHeaderDate";
+            startSplit = e.Start.split("-")
+            eventRoomSubHeaderDate.innerText = startSplit[1] + "/" + startSplit[2].substr(0, 2)
+
+            eventBox.append(eventHeaderText);
+            eventBox.append(eventSubHeaderText);
+            eventBox.append(eventRoomHeaderText);
+            eventBox.append(eventRoomSubHeaderText);
+            eventBox.append(eventRoomHeaderDateLabel);
+            eventBox.append(eventRoomSubHeaderDate);
+
+
+            var eventBar = document.createElement("div");
+            eventBar.className = "eventBar";
+            var eventTimeText = document.createElement("span");
+            eventTimeText.className = "eventTimeText";
+            eventTimeText.innerText = moment(e.Start).format("h:mm A") + " - " + moment(e.End).format("h:mm A");
+
+            eventBar.append(eventTimeText);
+
+            var eventMap = document.createElement("div");
+            eventMap.className = "eventMap";
+            eventMap.data = e;
+            var eventMapText = document.createElement("div");
+            eventMapText.className = "eventMapText";
+            eventMapText.innerText = "MAP IT";
+
+            eventMap.append(eventMapText);
+
+            eventBoxContainer.append(eventBox);
+            eventBoxContainer.append(eventBar);
+            eventBoxContainer.append(eventMap);
+
+            curSlide.append(eventBoxContainer);
+
+            count++;
+        });
+        $("#eventDirContainerList").append(curSlide);
+
+        $(".eventMap").click(function() {
+            console.log(this.data);
+
+            //ADD FEATURE TO MAP TO DESTINATION HERE
+            //can use this.data to find the location
+
+            $("#aab_buttn").click();
+            getRoute(this.data.RoomDescription.split(" ")[1].replace(/-/g, ""));
+
+        });
+        eventsSwiper = new Swiper('#eventDirContainer', {
+            slidesPerView: 1,
+            initialSlide: 0,
+            observer: true,
+            observeParents: true,
+            spaceBetween: 100,
+            on: {
+                init: function() {
+                    // if (this.visibleSlides == 0 || this.visibleSlides == undefined)
+                    //     this.visibleSlides = this.slides.length;
+                    // $("#eventsPage .leftArrows").hide();
+                    // $("#eventsPage .prevPageBtn").css("opacity", "0.4");
+                    // if (this.slides.length <= 1) {
+                    //     $("#eventsPage .rightArrows").hide();
+                    //     $("#eventsPage .nextPageBtn").css("opacity", "0.4");
+                    $("#eventPageNumText").html("PAGE 1 of " + $(".eventDirSlide").length);
+                    console.log(this);
+                    // }
+                    console.log('swiper initialized');
+                },
+                slideChange: function() {
+                    // activeIndex = this.realIndex * 24;
+                    // if (this.visibleSlides == 0)
+                    //     this.visibleSlides = this.slides.length;
+                    $("#eventPageNumText").html("PAGE " + (this.realIndex + 1) + " of " + this.slides.length);
+                    // if (this.visibleSlides <= 1) {
+                    //     $("#eventsPage .leftArrows").hide();
+                    //     $("#eventsPage .rightArrows").hide();
+                    //     $("#eventsPage .prevPageBtn").css("opacity", "0.4");
+                    //     $("#eventsPage .nextPageBtn").css("opacity", "0.4");
+                    // } else {
+                    //     $("#eventsPage .leftArrows").show();
+                    //     $("#eventsPage .rightArrows").show();
+                    //     $("#eventsPage .prevPageBtn").css("opacity", "1");
+                    //     $("#eventsPage .nextPageBtn").css("opacity", "1");
+                    //     if (this.realIndex == 0) {
+                    //         $("#eventsPage .leftArrows").hide();
+                    //         $("#eventsPage .prevPageBtn").css("opacity", "0.4");
+                    //     }
+                    //     if (this.realIndex == this.visibleSlides - 1) {
+                    //         $("#eventsPage .rightArrows").hide();
+                    //         $("#eventsPage .nextPageBtn").css("opacity", "0.4");
+                    //     }
+                    // }
+                    // $("#eventsDirContainerList .rowA").removeClass("rowA");
+                    // $("#eventsDirContainerList").children()[this.realIndex].children[0].className += " rowA"
+                },
+                update: function() {
+                    // if ($("#eventsDirContainerList .swiper-slide-next").css("display") !== undefined && $("#eventsDirContainerList .swiper-slide-next").css("display").indexOf("none") > -1)
+                    //     this.allowSlideNext = false;
+                    // else
+                    //     this.allowSlideNext = true;
+                    // $("#eventsPage .leftArrows").hide();
+                    // $("#eventsPage .prevPageBtn").css("opacity", "0.4");
+                    // if (this.visibleSlides <= 1) {
+                    //     $("#eventsPage .rightArrows").hide();
+                    //     $("#eventsPage .nextPageBtn").css("opacity", "0.4");
+                    // } else {
+                    //     $("#eventsPage .rightArrows").show();
+                    //     $("#eventsPage .nextPageBtn").css("opacity", "1");
+                    // }
+                },
+                slideChangeTransitionStart: function() {
+                    // if ($("#eventsDirContainerList .swiper-slide-next").css("display") !== undefined && $("#eventsDirContainerList .swiper-slide-next").css("display").indexOf("none") > -1)
+                    //     this.allowSlideNext = false;
+                    // else
+                    //     this.allowSlideNext = true;
+                }
+            }
+        });
+    }
+
+    function createEventDir() {
+        var dataSource = "AAB"
+        if (currentBuilding == "TB") {
+            dataSource = "TB"
+        }
+        //"php/get_events_" + dataSource + ".php"
+        fetch("data/json_" + dataSource + ".json").then(res => res.json()).then(data => {
+
+            data.Events.sort(function(a, b) {
+                if (moment(b.Start).diff(moment(a.Start)) <= 0)
+                    return 1;
+                else
+                    return -1;
+            });
+
+            createEventBoxes(data.Events);
+        });
+    }
+
+    var myTemp;
+    var myIcon;
+
+    function getWeather() {
+        $.ajax({
+            type: "GET",
+            url: "php/weather.php",
+            dataType: "xml",
+            success: function(xml) {
+                    myTemp = $(xml).find("accuWx\\:temperature").text();
+                    myIcon = $(xml).find("accuWx\\:weathericon").text();
+
+                    //weather-temp
+                    $("#tempContainer").html(myTemp + '&deg;');
+                    $("#weatherIcon").attr("src", "http://api.accuweather.com/developers/Media/Default/WeatherIcons/" + myIcon + "-s.png");
+                } // end success function of xml read
+        }); // end .ajax call for weather information
+    }
+
+    function getDate() {
+        $("#dayContainer").text(moment().format('dddd'));
+        $("#dateContainer").text(moment().format('MMMM D, YYYY'));
+    }
+
+    setInterval(function() {
+        getWeather();
+        getDate();
+    }, 60000);
+
+    getWeather();
+    getDate();
+    createEventDir();
+    displayScreen("campus");
+</script>
