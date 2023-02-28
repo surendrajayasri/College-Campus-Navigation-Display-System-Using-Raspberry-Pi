@@ -1,0 +1,1235 @@
+.hide {
+    display: none !important;
+}
+
+.hideBG {
+    background: none !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+ul {
+    padding-left: 0px;
+    padding-inline-start: 0px;
+    margin-bottom: 0;
+}
+
+* div,
+* span,
+* img {
+    user-select: none !important;
+}
+
+#body {
+    position: absolute;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    max-width: 1080px;
+    max-height: 1920px;
+    font-family: arial;
+}
+
+#bkg {
+    top: 0px;
+    left: 0px;
+    width: 1921px;
+    height: 1080px;
+    background: transparent url('img/bkg.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#weatherBG {
+    left: 1522px;
+    opacity: 1;
+    width: 400px;
+    position: absolute;
+}
+
+#dayContainer {
+    position: absolute;
+    left: 1579px;
+    top: 6.5px;
+    width: 174px;
+    text-align: center;
+    font-size: 46px;
+    font-family: Roboto-Light;
+    color: white;
+}
+
+#dateContainer {
+    position: absolute;
+    left: 1579px;
+    top: 68px;
+    width: 174px;
+    text-align: center;
+    font-size: 20px;
+    font-family: Roboto;
+    font-weight: bold;
+    color: white;
+}
+
+#weatherIcon {
+    position: absolute;
+    /* left: 1840px; */
+    left: 1840px;
+    top: 37px;
+    /* width: 50px; */
+    height: 50px;
+}
+
+#tempContainer {
+    position: absolute;
+    left: 1830px;
+    top: 88px;
+    width: 68px;
+    text-align: center;
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+}
+
+#aabMap {
+    top: 36px;
+    left: 532px;
+    width: 900px;
+    height: 800px;
+    opacity: 1;
+    position: absolute;
+}
+
+#aabMap2 {
+    top: 36px;
+    left: 532px;
+    width: 979px;
+    height: 918px;
+    opacity: 1;
+    position: absolute;
+}
+
+#techMap {
+    top: 36px;
+    left: 532px;
+    width: 979px;
+    height: 918px;
+    opacity: 1;
+    position: absolute;
+}
+
+#help {
+    top: 904px;
+    left: 1733px;
+    width: 117px;
+    height: 152px;
+    background: transparent url('img/helpoverlay_btn.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#yellowBar {
+    top: 158px;
+    left: 0px;
+    width: 460px;
+    height: 73px;
+    background: transparent url('img/Group 604.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#campuslegend {
+    top: 292px;
+    left: 68px;
+    width: 341px;
+    height: 352px;
+    border: 0.5px solid var(--unnamed-color-ffcd00);
+    opacity: 0.66;
+    position: absolute;
+}
+
+.voiceEnabled {
+    top: 903px;
+    left: 1596px;
+    width: 117px;
+    height: 117px;
+    opacity: 0.92;
+    position: absolute;
+}
+
+#legendText {
+    top: 305px;
+    left: 115px;
+    width: 114px;
+    height: 40px;
+    background: transparent url('img/LEGEND.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#youarehereinlegend {
+    top: 361px;
+    left: 109px;
+    width: 46px;
+    height: 46px;
+    background: transparent url('img/youarehereinlegend.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#youarehere {
+    top: 367px;
+    left: 169px;
+    width: 130px;
+    height: 29px;
+    background: transparent url('img/You Are Here.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#parkingicon {
+    top: 433px;
+    left: 116px;
+    width: 31px;
+    height: 32px;
+    background: transparent url('img/parkingicon.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#busstopicon {
+    top: 485px;
+    left: 116px;
+    width: 31px;
+    height: 32px;
+    background: transparent url('img/busstopicon.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+/* .northUp {
+    position: absolute;
+    top: 87px;
+    left: 1282px;
+    width: 31px;
+    height: 64px;
+    opacity: 1;
+} */
+
+/* .northDownOne {
+    top: 837px;
+    left: 1093px;
+    position: absolute;
+    opacity: 1;
+}
+
+.northDownTwo {
+    position: absolute;
+    top: 634px;
+    left: 818px;
+    position: absolute;
+    opacity: 1;
+}
+
+.northDownThree {
+    top: 811px;
+    left: 1655px;
+    position: absolute;
+    opacity: 1;
+} */
+
+#busstop {
+    top: 487px;
+    left: 169px;
+    width: 88px;
+    height: 29px;
+    background: transparent url('img/Bus Stop.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#parking {
+    top: 433px;
+    left: 169px;
+    width: 75px;
+    height: 29px;
+    background: transparent url('img/Parking.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#voiceenabledlarge {
+    top: 412px;
+    left: 1593px;
+    width: 257px;
+    height: 257px;
+    background: transparent url('img/voiceenabledlarge.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#campusmap_btn {
+    top: 904px;
+    left: 91px;
+    width: 117px;
+    height: 150px;
+    background: transparent url('img/campusmap_btn.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#aab_buttn {
+    top: 904px;
+    left: 282px;
+    /* width: 158px; */
+    /* height: 161px; */
+    /* background: transparent url('img/aab_buttn.png') 0% 0% no-repeat padding-box; */
+    opacity: 1;
+    position: absolute;
+}
+
+#eventdirectory_btn {
+    top: 904px;
+    left: 521px;
+    width: 117px;
+    height: 150px;
+    background: transparent url('img/eventdirectory_btn.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#roomdirectory_btn {
+    top: 904px;
+    left: 702px;
+    width: 117px;
+    height: 150px;
+    background: transparent url('img/roomdirectory_btn.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#selectbuilding {
+    top: 923px;
+    left: 902px;
+    width: 116px;
+    height: 106px;
+    background: transparent url('img/selectbuilding.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#eventDirContainer {
+    position: absolute;
+    top: 292px;
+    left: 87px;
+    height: 522px;
+    width: 1746px;
+    list-style-type: disc;
+    /* -webkit-columns: 3;
+    -moz-columns: 3;
+    columns: 3; */
+    list-style-position: inside;
+    overflow: hidden;
+}
+
+.eventDirSlide {
+    padding-inline-start: 0;
+    list-style-type: disc;
+    list-style: none;
+    -webkit-columns: 3;
+    -moz-columns: 3;
+    columns: 3;
+    list-style-position: inside;
+}
+
+.eventBoxContainer {
+    width: 561px;
+    height: 154px;
+    margin-right: 29px;
+    margin-bottom: 13px;
+    display: inline-block;
+}
+
+.eventBox {
+    width: 561px;
+    height: 154px;
+    background: #003865 0% 0% no-repeat padding-box;
+    opacity: 0.76;
+    position: absolute;
+}
+
+.eventBar {
+    width: 561px;
+    height: 56px;
+    background: #00A8E1 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+.eventMap {
+    margin-left: 452px;
+    width: 109px;
+    height: 56px;
+    background: #FFCD00 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+.eventMapText {
+    left: 15px;
+    width: 72px;
+    height: 28px;
+    top: 15px;
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-000000);
+    text-align: center;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+    position: absolute;
+    font-size: 21px;
+    font-family: Roboto;
+    font-weight: bold;
+}
+
+.eventHeaderText {
+    position: absolute;
+    left: 29px;
+    top: 76px;
+    color: white;
+    font-family: Roboto;
+    font-size: 20px;
+}
+
+.eventSubHeaderText {
+    position: absolute;
+    left: 96px;
+    top: 76px;
+    color: #FFCD00;
+    font-family: Roboto;
+    font-size: 19px;
+}
+
+.eventRoomHeaderText {
+    position: absolute;
+    left: 29px;
+    top: 105px;
+    color: white;
+    font-family: Roboto;
+    font-size: 20px;
+}
+
+.eventRoomSubHeaderText {
+    position: absolute;
+    left: 96px;
+    top: 105px;
+    color: #FFCD00;
+    font-family: Roboto;
+    font-size: 20px;
+}
+
+.eventTimeText {
+    position: absolute;
+    left: 29px;
+    top: 8px;
+    color: white;
+    font-family: Roboto;
+    font-size: 26px;
+}
+
+#eventPageNumText {
+    position: absolute;
+    left: 920px;
+    top: 842px;
+    color: white;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+#eventSwipeToView {
+    position: absolute;
+    left: 904px;
+    top: 898px;
+}
+
+#restrooms {
+    top: 433px;
+    left: 169px;
+    width: 107px;
+    height: 29px;
+    background: transparent url('img/Restrooms.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#restroomsicon {
+    top: 433px;
+    left: 116px;
+    width: 31px;
+    height: 32px;
+    background: transparent url('img/restrooms icon.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#stairsicon {
+    top: 483px;
+    left: 117px;
+    width: 31px;
+    height: 30px;
+    background: transparent url('img/stairs icon.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#stairs {
+    top: 481px;
+    left: 169px;
+    width: 57px;
+    height: 29px;
+    background: transparent url('img/Stairs.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#elevators {
+    top: 529px;
+    left: 169px;
+    width: 91px;
+    height: 29px;
+    background: transparent url('img/Elevators.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#elevatoricon {
+    top: 530px;
+    left: 117px;
+    width: 31px;
+    height: 32px;
+    background: transparent url('img/elevator icon.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#entrances-exits {
+    top: 578px;
+    left: 118px;
+    width: 31px;
+    height: 31px;
+    background: transparent url('img/entrances/exits.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#handicapicon {
+    top: 627px;
+    left: 118px;
+    width: 31px;
+    height: 31px;
+    background: transparent url('img/handicap icon.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#handicapaccessible {
+    top: 626px;
+    left: 169px;
+    width: 207px;
+    height: 29px;
+    background: transparent url('img/Handicap Accessible.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#academiclegend {
+    top: 292px;
+    left: 68px;
+    border: 0.5px solid var(--unnamed-color-ffcd00);
+    background: transparent url('img/Rectangle 231.png') 0% 0% no-repeat padding-box;
+    opacity: 0.66;
+    position: absolute;
+}
+
+#path3639 {
+    top: 923px;
+    left: 1064px;
+    width: 52px;
+    height: 60px;
+    background: transparent url('img/Path 3639.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#selecttochangefloor {
+    top: 987px;
+    left: 1037px;
+    width: 110px;
+    height: 38px;
+    background: transparent url('img/SELECT TO CHANGE FLOOR.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#path3640 {
+    top: 1014px;
+    left: 1035px;
+    width: 143px;
+    height: 15px;
+    background: transparent url('img/Path 3640.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#basement {
+    top: 931px;
+    left: 1149.48px;
+    width: 72px;
+    height: 74px;
+    background: transparent url('img/B.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#one {
+    top: 931px;
+    left: 1182px;
+    width: 72px;
+    height: 74px;
+    background: transparent url('img/1.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#two {
+    top: 931px;
+    left: 1271px;
+    width: 72px;
+    height: 74px;
+    background: transparent url('img/2.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#three {
+    top: 931px;
+    left: 1360px;
+    width: 72px;
+    height: 74px;
+    background: transparent url('img/3.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#four {
+    top: 931px;
+    left: 1449px;
+    width: 72px;
+    height: 74px;
+    background: transparent url('img/4.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#roomDirContainer {
+    position: absolute;
+    left: 339.1px;
+    top: 332.98px;
+    width: 1344px;
+    height: 414px;
+    overflow: hidden;
+}
+
+#filterText {
+    top: 792px;
+    left: 337px;
+    width: 75px;
+    height: 32px;
+    font: var(--unnamed-font-style-normal) normal bold 24px/36px Roboto;
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-ffffff);
+    text-align: left;
+    font: normal normal bold 24px/36px Roboto;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    opacity: 1;
+    position: absolute;
+}
+
+#roomDirectory .activeFilterBtn {
+    background: #FFCD00;
+    color: #003865;
+}
+
+#roomDirectory .rowE,
+#roomDirectory .rowO {
+    display: inline-block;
+    height: 46px;
+    width: 1244px;
+    font-size: 0;
+}
+
+#roomDirectory .rowE {
+    background: rgba(0, 56, 101, 0.8);
+}
+
+#roomDirectory .rowO {
+    background: rgba(0, 0, 0, 0.23);
+}
+
+#roomDirectory #roomDirContainerList .rowA {
+    background: red;
+    opacity: 0.7;
+}
+
+#roomDirContainer .RoomNumber {
+    display: inline-block;
+    width: 298px;
+    text-align: center;
+    color: white;
+    font-size: 21px;
+    vertical-align: middle;
+}
+
+#roomDirContainer .RoomType {
+    display: inline-block;
+    width: 298px;
+    text-align: center;
+    color: white;
+    font-size: 21px;
+    vertical-align: middle;
+}
+
+#roomDirContainer .FloorNumber {
+    display: inline-block;
+    width: 298px;
+    text-align: center;
+    color: white;
+    font-size: 21px;
+    vertical-align: middle;
+}
+
+#roomDirContainer .mapItBtn {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 224px;
+    white-space: nowrap;
+}
+
+.filterBtnText {
+    font-family: Roboto, Bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#allFilter {
+    top: 786px;
+    left: 432px;
+    width: 109px;
+    height: 93px;
+    background: var(--unnamed-color-ffcd00) 0% 0% no-repeat padding-box;
+    background: #00A8E1 0% 0% no-repeat padding-box;
+    color: white;
+    opacity: 1;
+    position: absolute;
+}
+
+#classroomFilter {
+    top: 786px;
+    left: 544px;
+    width: 192px;
+    height: 45px;
+    background: var(--unnamed-color-00a8e1) 0% 0% no-repeat padding-box;
+    background: #00A8E1 0% 0% no-repeat padding-box;
+    color: white;
+    opacity: 1;
+    position: absolute;
+}
+
+#commonFilter {
+    top: 786px;
+    left: 739px;
+    width: 152px;
+    height: 45px;
+    background: var(--unnamed-color-00a8e1) 0% 0% no-repeat padding-box;
+    background: #00A8E1 0% 0% no-repeat padding-box;
+    color: white;
+    opacity: 1;
+    position: absolute;
+}
+
+#conferenceFilter {
+    top: 834px;
+    left: 544px;
+    width: 178px;
+    height: 45px;
+    background: var(--unnamed-color-00a8e1) 0% 0% no-repeat padding-box;
+    background: #00A8E1 0% 0% no-repeat padding-box;
+    color: white;
+    opacity: 1;
+    position: absolute;
+}
+
+#officeFilter {
+    top: 834px;
+    left: 725px;
+    width: 98px;
+    height: 45px;
+    background: var(--unnamed-color-00a8e1) 0% 0% no-repeat padding-box;
+    background: #00A8E1 0% 0% no-repeat padding-box;
+    color: white;
+    opacity: 1;
+    position: absolute;
+}
+
+#studyFilter {
+    top: 834px;
+    left: 826px;
+    width: 98px;
+    height: 45px;
+    background: var(--unnamed-color-00a8e1) 0% 0% no-repeat padding-box;
+    background: #00A8E1 0% 0% no-repeat padding-box;
+    color: white;
+    opacity: 1;
+    position: absolute;
+}
+
+#entrances-exitsText {
+    top: 577px;
+    left: 169px;
+    width: 155px;
+    height: 29px;
+    background: transparent url('img/Entrances/Exits.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+}
+
+#roomTitleText {
+    font-family: Roboto-Black;
+    font-size: 24px;
+    font-weight: bold;
+    top: 175px;
+    left: 50px;
+    width: 300px;
+    height: 39px;
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-000000);
+    text-align: left;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+    position: absolute;
+}
+
+.pageTitleText {
+    font-family: Roboto-Black;
+    font-size: 24px;
+    font-weight: bold;
+    top: 175px;
+    left: 50px;
+    width: 300px;
+    height: 39px;
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-000000);
+    text-align: left;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+    position: absolute;
+}
+
+#aabTitle {
+    font-family: Roboto-Black;
+    font-size: 24px;
+    font-weight: bold;
+    top: 155px;
+    left: 40px;
+    width: 420px;
+    height: 39px;
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-000000);
+    text-align: left;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+    position: absolute;
+}
+
+#campusMapNoPaths {
+    top: 35.5px;
+    left: 532px;
+    width: 979px;
+    height: 917.75px;
+    position: absolute;
+}
+
+#themap {
+    top: 112.9px;
+    left: 487.5px;
+    width: 1262px;
+    height: 750px;
+    position: absolute;
+}
+
+#roomHeaderBackground {
+    position: absolute;
+    top: 276px;
+    left: 339px;
+    background: #00A8E1;
+    width: 1244px;
+    height: 56px;
+}
+#roomBodyBackground {
+    position: absolute;
+    top: 324px;
+    left: 339px;
+    background: rgba(0, 56, 101, 0.8);
+    width: 1244px;
+    height: 56px;
+}
+
+.roomHeader {
+    position: absolute;
+    top: 288px;
+    color: white;
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 24px;
+    white-space: nowrap;
+}
+.section {
+    scrollbar-width: thin;
+}
+.section {
+    scrollbar-color: #FFCC00 #003865;
+    scrollbar-width: thin;
+}
+.box {
+    padding: 1rem;
+    max-height: 220px;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+}
+#roomNumberHeader1   {
+    left: 460px;
+}
+
+#roomTypeHeaderLab {
+    left: 760px;
+}
+
+#roomFloorNumberHeader1 {
+    left: 1065px;
+}
+
+#roomMapItHeader1 {
+    left: 1479px;
+}
+#roomNumberHeader  {
+    left: 401px;
+}
+
+#roomTypeHeader {
+    left: 719px;
+}
+
+#roomFloorNumberHeader {
+    left: 995px;
+}
+
+#roomMapItHeader {
+    left: 1479px;
+}
+
+#roomSelectRowText {
+    position: absolute;
+    left: 1262px;
+    top: 792px;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Roboto;
+    color: white;
+    white-space: nowrap;
+}
+
+#roomRowDownBtn {
+    position: absolute;
+    left: 1279px;
+    top: 834px;
+}
+
+#roomRowUpBtn {
+    position: absolute;
+    left: 1336px;
+    top: 834px;
+}
+
+#roomMapItBtn {
+    position: absolute;
+    left: 1456px;
+    top: 834px;
+}
+
+#phone {
+    position: absolute;
+    top: 607px;
+    left: 806px;
+    width: 588px;
+    height: 409px;
+    opacity: 1;
+    z-index: 99999;
+}
+
+#p1 {
+    position: absolute;
+    z-index: 9999999;
+    top: 90px;
+    left: 85px;
+    width: 60px;
+    height: 55px;
+}
+
+#p2 {
+    position: absolute;
+    z-index: 9999999;
+    top: 90px;
+    left: 155px;
+    width: 60px;
+    height: 55px;
+}
+
+#p3 {
+    position: absolute;
+    z-index: 9999999;
+    top: 90px;
+    left: 225px;
+    width: 60px;
+    height: 55px;
+}
+
+#p4 {
+    position: absolute;
+    z-index: 9999999;
+    top: 155px;
+    left: 85px;
+    width: 60px;
+    height: 55px;
+}
+
+#p5 {
+    position: absolute;
+    z-index: 9999999;
+    top: 155px;
+    left: 155px;
+    width: 60px;
+    height: 55px;
+}
+
+#p6 {
+    position: absolute;
+    z-index: 9999999;
+    top: 155px;
+    left: 225px;
+    width: 60px;
+    height: 55px;
+}
+
+#p7 {
+    position: absolute;
+    z-index: 9999999;
+    top: 220px;
+    left: 85px;
+    width: 60px;
+    height: 55px;
+}
+
+#p8 {
+    position: absolute;
+    z-index: 9999999;
+    top: 220px;
+    left: 155px;
+    width: 60px;
+    height: 55px;
+}
+
+#p9 {
+    position: absolute;
+    z-index: 9999999;
+    top: 220px;
+    left: 225px;
+    width: 60px;
+    height: 55px;
+}
+
+#p0 {
+    position: absolute;
+    z-index: 9999999;
+    top: 285px;
+    left: 155px;
+    width: 60px;
+    height: 55px;
+}
+
+#pBack {
+    position: absolute;
+    z-index: 9999999;
+    top: 285px;
+    left: 225px;
+    width: 60px;
+    height: 55px;
+}
+
+#pSend {
+    position: absolute;
+    z-index: 9999999;
+    top: 345px;
+    left: 85px;
+    width: 220px;
+    height: 50px;
+}
+
+#pText {
+    position: absolute;
+    z-index: 9999999;
+    top: 25px;
+    left: 95px;
+    width: 220px;
+    height: 50px;
+    color: #003865;
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#pClose {
+    position: absolute;
+    z-index: 9999999;
+    top: 355px;
+    left: 0px;
+    width: 60px;
+    height: 55px;
+}
+
+#clockDate {
+    position: absolute;
+    left: 1692px;
+    top: 40px;
+    z-index: 999999;
+    color: white;
+    font-family: Roboto;
+    font-weight: bold;
+    width: 300px;
+    display: none;
+}
+
+#clockTime {
+    position: absolute;
+    left: 1692px;
+    z-index: 999999;
+    color: white;
+    font-family: Roboto;
+    width: 300px;
+    font-size: 30px;
+    display: none;
+}
+
+#clockClock {
+    position: absolute;
+    left: 1579px;
+    top: 95px;
+    width: 174px;
+    text-align: center;
+    font-size: 20px;
+    font-family: Roboto;
+    font-weight: bold;
+    color: white;
+}
+
+#SMSbtn {
+    position: absolute;
+    left: 940px;
+    top: 746px;
+    z-index: 999;
+}
+
+#SMSbtn2 {
+    position: absolute;
+    left: 980px;
+    top: 746px;
+    z-index: 999;
+}
+
+#CommandNotFound {
+    position: absolute;
+    left: 900px;
+    top: 200px;
+    height: 200px;
+    width: 340px;
+    z-index: 999999;
+    /* border-width: 2px; */
+    /* color: black; */
+    font-weight: bold;
+}
+
+#notFoundRoom {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 999999;
+    color: white;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.eventRoomSubHeaderDate {
+    position: absolute;
+    left: 285px;
+    top: 105px;
+    color: #FFCD00;
+    font-family: Roboto;
+    font-size: 20px;
+}
+
+.eventRoomHeaderDateLabel {
+    position: absolute;
+    left: 230px;
+    top: 105px;
+    color: white;
+    font-family: Roboto;
+    font-size: 20px;
+}
+
+@font-face {
+    font-family: 'Roboto-Light';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Roboto-Light'), url('../fonts/Roboto-Light.ttf') format('woff');
+}
+
+@font-face {
+    font-family: 'Roboto-Black';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Roboto-Black'), url('../fonts/Roboto-Black.ttf') format('woff');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Roboto'), url('../fonts/Roboto-Regular.ttf') format('woff');
+}
+
+
+
+
+
